@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/10/26 16:46:58 by matesant         ###   ########.fr       */
+/*   Updated: 2023/10/26 19:45:54 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	destroy(t_long *data)
 //testador de telca ESC beta
 int	keyword(int keycode, t_long *data)
 {
+	printf("Pressed key: %d\\n", keycode);
 	if (keycode == XK_Escape)
 		destroy(data);
 	return (0);
