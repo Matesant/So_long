@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/08 17:01:44 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/08 18:46:17 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,23 @@ typedef struct s_image
 	t_thunder	size;
 }				t_image;
 
+typedef struct s_map
+{
+	char	**map;
+	
+}	t_map;
+
 //main struct
 typedef struct s_game
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
 }				t_game;
+
+typedef struct s_dejetos
+{
+	int	i;
+	int	j;
+}	t_dejetos;
 
 #endif
