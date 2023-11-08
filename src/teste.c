@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   teste.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/21 12:03:38 by matesant          #+#    #+#             */
-/*   Updated: 2023/09/04 11:25:09 by matesant         ###   ########.fr       */
+/*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
+/*   Updated: 2023/11/08 17:02:22 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "so_long.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
+#define WIDHT 599
+#define HEIGHT 1000
 
-# include <stdlib.h>
-# include <unistd.h>
+int	main(void)
+{
+	t_game	game;
 
-char		*get_next_line(int fd);
-size_t		ft_strlen(const char *str);
-char		*ft_strjoin(const char *dest, char *str);
-char		*ft_strchr(const char *str, int c);
-char		*ft_strdup(const char *str);
-size_t		ft_strlcpy(char *dest, const char *str, size_t n);
-
-#endif
+	game.mlx_ptr = mlx_init(WIDHT, HEIGHT, "OPA", true);
+	mlx_loop(game.mlx_ptr);
+	mlx_delete_image(game.mlx_ptr, 0);
+}

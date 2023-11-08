@@ -1,28 +1,46 @@
-NAME = so_long.a
-CC = cc
-FLAGS = -Wall -Werror -Wextra
-RM = rm -rf
+NAME	:= So_long
+CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
+LIBMLX	:= ./MLX42
 
-HEADER = .
-SRCS = teste.c 
+HEADERS	:= -I ./includes -I $(LIBMLX)/include
+LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
+SRCS	:= $(shell find ./src -iname "*.c")
+OBJS	:= ${SRCS:.c=.o}
+GNL		:= /nfs/homes/matesant/So_long/lib/Get_next_line
+LIBFT_DIR:= /nfs/homes/matesant/So_long/lib/42_libft/
+PRINTF_DIR	:= /nfs/homes/matesant/So_long/lib/Printf
+GNL_PATH:= /nfs/homes/matesant/So_long/lib/Get_next_line/get_next_line.a
+PRINTF_PATH:= /nfs/homes/matesant/So_long/lib/Printf/libftprintf.a
+LIBFT_PATH:= /nfs/homes/matesant/So_long/lib/42_libft/libft.a
 
-OBJS =  $(SRCS:.c=.o)
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+LIBS42:= $(GNL_PATH) $(LIBFT_PATH) $(PRINTF_PATH)
+all: libmlx $(NAME)
 
-.PHONY: clean fclean re all bonus
-
-all: $(NAME)
-
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $?
+libmlx:
+	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@ -I $(HEADER)
+	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
+
+$(NAME): $(OBJS)
+	@make -C $(GNL)
+	@make -C $(LIBFT_DIR)
+	@make -C $(PRINTF_DIR)
+	@$(CC) $(OBJS) $(LIBS) $(HEADERS) $(LIBS42) -o $(NAME)
 
 clean:
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	@rm -rf $(OBJS)
+	@rm -rf $(LIBMLX)/build
+	@make clean -C $(GNL)
+	@make clean -C $(LIBFT_DIR)
+	@make clean -C $(PRINTF_DIR)
 
 fclean: clean
-	$(RM) $(NAME)
+	@rm -rf $(NAME)
+	rm -rf $(LIBFT_PATH)
+	rm -rf $(GNL_PATH)
+	rm -rf $(PRINTF_PATH)
 
-re: fclean all
+re: clean all
+
+.PHONY: all, clean, fclean, re, libmlx
