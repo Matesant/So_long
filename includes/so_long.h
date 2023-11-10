@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/08 18:46:17 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:05:12 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 // 42 libs
 # include "/nfs/homes/matesant/So_long/lib/42_libft/libft.h"
-# include "/nfs/homes/matesant/So_long/lib/Get_next_line/get_next_line.h"
 # include "/nfs/homes/matesant/So_long/lib/Printf/ft_printf.h"
 
 // other libs
@@ -43,7 +42,6 @@ typedef struct s_image
 typedef struct s_map
 {
 	char	**map;
-	
 }	t_map;
 
 //main struct
@@ -53,10 +51,10 @@ typedef struct s_game
 	void		*win_ptr;
 }				t_game;
 
-typedef struct s_dejetos
+typedef struct s_d
 {
 	int	i;
 	int	j;
-}	t_dejetos;
+}	t_d;
 
 #endif
