@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/08 17:02:22 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/12 17:46:25 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,7 @@ int	main(void)
 	mlx_loop(game.mlx_ptr);
 	mlx_delete_image(game.mlx_ptr, 0);
 }
+
+xxxxx
+x   x
+xxxxx

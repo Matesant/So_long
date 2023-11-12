@@ -8,9 +8,9 @@ LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS	:= src/errors.c src/verifications.c src/main.c
 OBJS	:= ${SRCS:src/%.c=$(BIN)%.o}
 LIBFT_DIR:= /nfs/homes/matesant/So_long/lib/42_libft/
-PRINTF_DIR	:= /nfs/homes/matesant/So_long/lib/Printf
-PRINTF_PATH:= /nfs/homes/matesant/So_long/lib/Printf/libftprintf.a
-LIBFT_PATH:= /nfs/homes/matesant/So_long/lib/42_libft/libft.a
+PRINTF_DIR	:= ../So_long/lib/Printf
+PRINTF_PATH:= ../So_long/lib/Printf/libftprintf.a
+LIBFT_PATH:= ../So_long/lib/42_libft/libft.a
 
 LIBS42:= $(LIBFT_PATH) $(PRINTF_PATH)
 all: libmlx $(BIN) $(NAME)
@@ -22,7 +22,7 @@ libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 $(BIN)%.o: src/%.c
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
+	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
 $(NAME): $(OBJS)
 	@make -C $(LIBFT_DIR)
@@ -34,6 +34,7 @@ clean:
 	@rm -rf $(LIBMLX)/build
 	@make clean -C $(LIBFT_DIR)
 	@make clean -C $(PRINTF_DIR)
+	@rm -rf $(BIN)
 
 fclean: clean
 	@rm -rf $(NAME)

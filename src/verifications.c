@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:02:23 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/12 17:41:03 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/12 17:47:46 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@ void	ft_map_format(t_game *matrice)
 {
 	if (matrice->counter.collect == 0)
 		ft_map_errors("Wrong number of collectibles", matrice);
+	if (matrice->counter.exit != 1)
+		ft_map_errors("Wrong number of exits", matrice);
+	if (matrice->counter.floor < 3)
+		ft_map_errors("Wrong number of floors", matrice);
+	if (matrice->counter.walls < 12)
+		ft_map_errors("Wrong number of walls", matrice);
+	if (matrice->counter.collect != 1)
+		ft_map_errors("Wrong number of players", matrice);
 }
 
 void	ft_labla(t_game *matrice)
