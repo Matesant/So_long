@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 12:34:25 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/12 17:29:35 by matesant         ###   ########.fr       */
+/*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
+/*   Updated: 2023/11/12 17:31:06 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_map_errors(char *str, t_game *matrice)
+void	ft_init_counters(t_game *matrice)
 {
-	ft_printf("%s", str);
-	ft_delete_matrice(matrice->map.map);
-	close (matrice->file.fd);
-	exit(1);
+	matrice->counter.collect = 0;
+	matrice->counter.walls = 0;
+	matrice->counter.player = 0;
+	matrice->counter.floor = 0;
+	matrice->counter.exit = 0;
+}
+
+int	main(int argc, char **argv)
+{
+	int		i;
+	t_game	maurice;
+
+	i = -1;
+	if (argc != 2)
+		ft_map_errors(4, NULL);
+	ft_init_counters(&maurice);
+	ft_cmap(argv[1], &maurice);
+	ft_map_format(&maurice);
+	ft_delete_matrice(maurice.map.map);
 }

@@ -1,23 +1,27 @@
 NAME	:= So_long
 CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
 LIBMLX	:= ./MLX42
+BIN		:= ./bin/
 
 HEADERS	:= -I ./includes -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
-SRCS	:= $(shell find ./src -iname "*.c")
-OBJS	:= ${SRCS:.c=.o}
+SRCS	:= src/errors.c
+OBJS	:= ${SRCS:src/%.c=$(BIN)%.o}
 LIBFT_DIR:= /nfs/homes/matesant/So_long/lib/42_libft/
 PRINTF_DIR	:= /nfs/homes/matesant/So_long/lib/Printf
 PRINTF_PATH:= /nfs/homes/matesant/So_long/lib/Printf/libftprintf.a
 LIBFT_PATH:= /nfs/homes/matesant/So_long/lib/42_libft/libft.a
 
 LIBS42:= $(LIBFT_PATH) $(PRINTF_PATH)
-all: libmlx $(NAME)
+all: libmlx $(BIN) $(NAME)
+
+$(BIN):
+	@mkdir -p $(BIN)
 
 libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
-%.o: %.c
+$(BIN)%.o: src/%.c
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
 
 $(NAME): $(OBJS)
@@ -36,6 +40,6 @@ fclean: clean
 	rm -rf $(LIBFT_PATH)
 	rm -rf $(PRINTF_PATH)
 
-re: clean all
+re: fclean all
 
 .PHONY: all, clean, fclean, re, libmlx

@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/12 15:20:19 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/12 16:40:20 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ typedef struct s_map
 	t_thunder	player_p;
 	t_thunder	exit_p;
 	t_thunder	map_size;
+	int			x;
+	int			y;
 }				t_map;
 
 // main struct
@@ -72,7 +74,14 @@ typedef struct s_d
 	int			j;
 }				t_d;
 
+// map checkers
+void			ft_verify_char(t_game *matrice, int c, int x, int y);
+void			ft_labla(t_game *matrice);
+void			ft_validate_file(char *file);
+void			ft_map_format(t_game *matrice);
+void			ft_verify_char(t_game *matrice, int c, int x, int y);
+
 // error handling
-void			ft_map_errors(int i, t_game *matrice);
+void			ft_map_errors(char *str, t_game *matrice);
 
 #endif
