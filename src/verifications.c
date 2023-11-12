@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:02:23 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/12 17:37:03 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/12 17:41:03 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_map_format(t_game *matrice)
 {
 	if (matrice->counter.collect == 0)
-		ft_map_errors(1, matrice);
+		ft_map_errors("Wrong number of collectibles", matrice);
 }
 
 void	ft_labla(t_game *matrice)
@@ -36,7 +36,7 @@ void	ft_labla(t_game *matrice)
 
 void	ft_verify_char(t_game *matrice, int c, int x, int y)
 {
-	if (ft_strchr(("01CEP", c) == NULL))
+	if (ft_strchr("01CEP", c) == NULL)
 		ft_map_errors("Invalid character", matrice);
 	if (matrice->map.map[y][x] == 'C')
 		matrice->counter.collect++;
@@ -57,9 +57,9 @@ void	ft_cmap(char *path, t_game *matrice)
 	matrice->file.fd = open(path, O_RDONLY);
 	bytes = read(matrice->file.fd, &matrice->file.line, 100000);
 	if (bytes == -1)
-		ft_map_errors(3, matrice);
+		ft_map_errors("Read error", matrice);
 	matrice->map.map = ft_split(matrice->file.line, '\n');
-	ft_verify_char(matrice);
+	ft_labla(matrice);
 	close(matrice->file.fd);
 }
 
@@ -71,6 +71,6 @@ void	ft_validate_file(char *file)
 	while (file[++i])
 	{
 		if (!(ft_strncmp(file + ft_strlen(file) - 4, ".ber", 4) == 0))
-			ft_map_errors(2, NULL);
+			ft_map_errors("Invalid extension", NULL);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/12 17:31:06 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/12 17:39:43 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 
 	i = -1;
 	if (argc != 2)
-		ft_map_errors(4, NULL);
+		ft_map_errors("Invalid number of arguments", NULL);
 	ft_init_counters(&maurice);
 	ft_cmap(argv[1], &maurice);
 	ft_map_format(&maurice);

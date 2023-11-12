@@ -5,7 +5,7 @@ BIN		:= ./bin/
 
 HEADERS	:= -I ./includes -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
-SRCS	:= src/errors.c
+SRCS	:= src/errors.c src/verifications.c src/main.c
 OBJS	:= ${SRCS:src/%.c=$(BIN)%.o}
 LIBFT_DIR:= /nfs/homes/matesant/So_long/lib/42_libft/
 PRINTF_DIR	:= /nfs/homes/matesant/So_long/lib/Printf

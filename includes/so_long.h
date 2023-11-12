@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/12 16:40:20 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/12 17:41:47 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void			ft_labla(t_game *matrice);
 void			ft_validate_file(char *file);
 void			ft_map_format(t_game *matrice);
 void			ft_verify_char(t_game *matrice, int c, int x, int y);
+void			ft_cmap(char *path, t_game *matrice);
 
 // error handling
 void			ft_map_errors(char *str, t_game *matrice);
