@@ -1,8 +1,8 @@
 NAME	:= So_long
-CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
+CFLAGS	:= -Wextra -Wall -Werror
 LIBMLX	:= ./MLX42
 BIN		:= ./bin/
-
+MLX 	:= ./MLX42/build/libmlx42.a
 HEADERS	:= -I ./includes -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS	:= src/errors.c src/verifications.c src/main.c
@@ -18,16 +18,18 @@ all: libmlx $(BIN) $(NAME)
 $(BIN):
 	@mkdir -p $(BIN)
 
-libmlx:
+$(MLX):
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+
 
 $(BIN)%.o: src/%.c
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(MLX)
 	@make -C $(LIBFT_DIR)
 	@make -C $(PRINTF_DIR)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) $(LIBS42) -o $(NAME)
+	@$(CC) $(OBJS) $(MLX) $(LIBS) $(HEADERS) $(LIBS42) -o $(NAME)
+
 
 clean:
 	@rm -rf $(OBJS)
