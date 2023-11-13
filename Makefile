@@ -25,7 +25,7 @@ $(MLX):
 $(BIN)%.o: src/%.c
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
-$(NAME): $(OBJS) $(MLX)
+$(NAME): $(OBJS) $(MLX) $(LIBFT_DIR)
 	@make -C $(LIBFT_DIR)
 	@make -C $(PRINTF_DIR)
 	@$(CC) $(OBJS) $(MLX) $(LIBS) $(HEADERS) $(LIBS42) -o $(NAME)

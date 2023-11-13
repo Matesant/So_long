@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:02:23 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/13 18:42:16 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:45:01 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,9 @@ void	ft_cmap(char *path, t_game *matrice)
 
 	matrice->file.fd = open(path, O_RDONLY);
 	bytes = read(matrice->file.fd, &matrice->file.line, 100000);
+	printf("%s\n", matrice->file.line);
 	if (bytes == -1)
 		ft_map_errors("Read error", matrice);
-	matrice->map.map[0] = (char *)malloc(sizeof(char));
 	matrice->map.map = ft_split(matrice->file.line, '\n');
 	ft_labla(matrice);
 	close(matrice->file.fd);

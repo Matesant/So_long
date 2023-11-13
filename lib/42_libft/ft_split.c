@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 09:47:21 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/12 13:14:34 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/13 20:02:52 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	ft_count_words(char const *s, char c)
 	size_t	words;
 
 	words = 0;
+	if (!s)
+		return (0);
 	while (*s != '\0')
 	{
 		if (*s == c)
@@ -89,6 +91,7 @@ char	**ft_split(char const *s, char c)
 	array = (char **)ft_calloc((words + 1), sizeof(char *));
 	if (!(array))
 		return (NULL);
+	ft_memset(array, 0, (words + 1) * sizeof(char *));
 	while (*s == c && *s)
 		s++;
 	return (ft_allocate(array, s, c));
