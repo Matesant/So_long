@@ -6,14 +6,42 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:02:23 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/12 17:47:46 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/13 18:06:16 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void	ft_rush_00(t_game *neo)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	ft_matrice_lines_columns(neo);
+	while (neo->map.map[y])
+	{
+		if (neo->map.x != ft_strlen(neo->map.map[y]) || neo->map.x < 12)
+			ft_map_errors("Invalid map size", neo);
+		x = -1;
+		while (neo->map.map[y][++x])
+		{
+			if (neo->map.map[0][x] != '1')
+				ft_map_errors("Invalid map walls", neo);
+			else if (neo->map.map[y][0] != '1')
+				ft_map_errors("Invalid map walls", neo);
+			else if (neo->map.map[y][neo->map.x - 1] != '1')
+				ft_map_errors("Invalid map walls", neo);
+			else if (neo->map.map[neo->map.y - 1][x] != '1')
+				ft_map_errors("Invalid map walls", neo);
+		}
+		y++;
+	}
+}
+
 void	ft_map_format(t_game *matrice)
 {
+	ft_rush_00(matrice);
 	if (matrice->counter.collect == 0)
 		ft_map_errors("Wrong number of collectibles", matrice);
 	if (matrice->counter.exit != 1)
@@ -22,7 +50,7 @@ void	ft_map_format(t_game *matrice)
 		ft_map_errors("Wrong number of floors", matrice);
 	if (matrice->counter.walls < 12)
 		ft_map_errors("Wrong number of walls", matrice);
-	if (matrice->counter.collect != 1)
+	if (matrice->counter.player != 1)
 		ft_map_errors("Wrong number of players", matrice);
 }
 

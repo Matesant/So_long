@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/12 17:41:47 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:34:38 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # define HEIGHT 16
 
 // 42 libs
-# include "/nfs/homes/matesant/So_long/lib/42_libft/libft.h"
-# include "/nfs/homes/matesant/So_long/lib/Printf/ft_printf.h"
+# include "../lib/42_libft/libft.h"
+# include "../lib/Printf/ft_printf.h"
 
 // other libs
 //# include "../MLX42/include/MLX42/MLX42.h"
@@ -47,14 +47,17 @@ typedef struct s_file
 	int			fd;
 }				t_file;
 
+// ms is for map size
+// player_p && exit_p for player position
+// map is for my map duh
 typedef struct s_map
 {
 	char		**map;
 	char		**fill;
 	t_thunder	player_p;
 	t_thunder	exit_p;
-	t_thunder	map_size;
-	int			x;
+	t_thunder	ms;
+	size_t		x;
 	int			y;
 }				t_map;
 
@@ -81,6 +84,7 @@ void			ft_validate_file(char *file);
 void			ft_map_format(t_game *matrice);
 void			ft_verify_char(t_game *matrice, int c, int x, int y);
 void			ft_cmap(char *path, t_game *matrice);
+void			ft_matrice_lines_columns(t_game *matrice);
 
 // error handling
 void			ft_map_errors(char *str, t_game *matrice);
