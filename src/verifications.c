@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:02:23 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/13 18:06:16 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/13 18:42:16 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,11 @@ void	ft_verify_char(t_game *matrice, int c, int x, int y)
 	else if (matrice->map.map[y][x] == 'E')
 		matrice->counter.exit++;
 	else if (matrice->map.map[y][x] == 'P')
+	{
 		matrice->counter.player++;
+		matrice->map.player_p.y = y;
+		matrice->map.player_p.y = x;
+	}
 	else if (matrice->map.map[y][x] == '1')
 		matrice->counter.walls++;
 	else if (matrice->map.map[y][x] == '0')
@@ -94,6 +98,7 @@ void	ft_cmap(char *path, t_game *matrice)
 	bytes = read(matrice->file.fd, &matrice->file.line, 100000);
 	if (bytes == -1)
 		ft_map_errors("Read error", matrice);
+	matrice->map.map[0] = (char *)malloc(sizeof(char));
 	matrice->map.map = ft_split(matrice->file.line, '\n');
 	ft_labla(matrice);
 	close(matrice->file.fd);
