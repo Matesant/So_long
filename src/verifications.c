@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verifications.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:02:23 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/13 19:45:01 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/14 19:09:58 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ void	ft_rush_00(t_game *neo)
 	while (neo->map.map[y])
 	{
 		if (neo->map.x != ft_strlen(neo->map.map[y]) || neo->map.x < 12)
-			ft_map_errors("Invalid map size", neo);
+			ft_map_errors("Invalid map size\n", neo);
 		x = -1;
 		while (neo->map.map[y][++x])
 		{
 			if (neo->map.map[0][x] != '1')
-				ft_map_errors("Invalid map walls", neo);
+				ft_map_errors("Invalid map walls\n", neo);
 			else if (neo->map.map[y][0] != '1')
-				ft_map_errors("Invalid map walls", neo);
+				ft_map_errors("Invalid map walls\n", neo);
 			else if (neo->map.map[y][neo->map.x - 1] != '1')
-				ft_map_errors("Invalid map walls", neo);
+				ft_map_errors("Invalid map walls\n", neo);
 			else if (neo->map.map[neo->map.y - 1][x] != '1')
-				ft_map_errors("Invalid map walls", neo);
+				ft_map_errors("Invalid map walls\n", neo);
 		}
 		y++;
 	}
@@ -93,14 +93,17 @@ void	ft_verify_char(t_game *matrice, int c, int x, int y)
 void	ft_cmap(char *path, t_game *matrice)
 {
 	ssize_t	bytes;
+	char	**temp;
 
+	matrice->map.map = (char **)malloc(sizeof(char *) * 100000);
 	matrice->file.fd = open(path, O_RDONLY);
 	bytes = read(matrice->file.fd, &matrice->file.line, 100000);
-	printf("%s\n", matrice->file.line);
 	if (bytes == -1)
 		ft_map_errors("Read error", matrice);
+	temp = matrice->map.map;
 	matrice->map.map = ft_split(matrice->file.line, '\n');
 	ft_labla(matrice);
+	free (temp);
 	close(matrice->file.fd);
 }
 
@@ -112,6 +115,6 @@ void	ft_validate_file(char *file)
 	while (file[++i])
 	{
 		if (!(ft_strncmp(file + ft_strlen(file) - 4, ".ber", 4) == 0))
-			ft_map_errors("Invalid extension", NULL);
+			ft_map_errors("Invalid extension\n", NULL);
 	}
 }

@@ -8,11 +8,13 @@ LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS	:= src/errors.c src/verifications.c src/main.c
 OBJS	:= ${SRCS:src/%.c=$(BIN)%.o}
 LIBFT_DIR:= ../So_long/lib/42_libft/
-PRINTF_DIR	:= ../So_long/lib/Printf
+PRINTF_DIR	:= ../So_long/lib/Printf/
+GNL_DIR		:= ../So_long/lib/Get_next_line/
+GNL_PATH	:= ../So_long/lib/Get_next_line/get_next_line.a
 PRINTF_PATH:= ../So_long/lib/Printf/libftprintf.a
 LIBFT_PATH:= ../So_long/lib/42_libft/libft.a
 
-LIBS42:= $(LIBFT_PATH) $(PRINTF_PATH)
+LIBS42:= $(LIBFT_PATH) $(PRINTF_PATH) $(GNL_PATH)
 all: libmlx $(BIN) $(NAME)
 
 $(BIN):
@@ -28,6 +30,7 @@ $(BIN)%.o: src/%.c
 $(NAME): $(OBJS) $(MLX) $(LIBFT_DIR)
 	@make -C $(LIBFT_DIR)
 	@make -C $(PRINTF_DIR)
+	@make -C $(GNL_DIR)
 	@$(CC) $(OBJS) $(MLX) $(LIBS) $(HEADERS) $(LIBS42) -o $(NAME)
 
 
@@ -36,12 +39,14 @@ clean:
 	@rm -rf $(LIBMLX)/build
 	@make clean -C $(LIBFT_DIR)
 	@make clean -C $(PRINTF_DIR)
+	@make clean -C $(GNL_DIR)
 	@rm -rf $(BIN)
 
 fclean: clean
 	@rm -rf $(NAME)
 	rm -rf $(LIBFT_PATH)
 	rm -rf $(PRINTF_PATH)
+	rm -rf $(GNL_PATH)
 
 re: fclean all
 

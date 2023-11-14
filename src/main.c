@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/13 18:03:56 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/14 19:09:04 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,12 @@ void	ft_init_counters(t_game *matrice)
 
 int	main(int argc, char **argv)
 {
-	int		i;
 	t_game	maurice;
 
-	i = -1;
 	if (argc != 2)
 		ft_map_errors("Invalid number of arguments", NULL);
 	ft_init_counters(&maurice);
 	ft_cmap(argv[1], &maurice);
 	ft_map_format(&maurice);
-	ft_map_errors("Bye bye", &maurice);
+	ft_map_errors("Bye bye\n", &maurice);
 }
