@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/13 17:34:38 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/14 23:12:54 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 // 42 libs
 # include "../lib/42_libft/libft.h"
 # include "../lib/Printf/ft_printf.h"
+# include "../lib/Get_next_line/get_next_line.h"
 
 // other libs
 //# include "../MLX42/include/MLX42/MLX42.h"
@@ -43,7 +44,7 @@ typedef struct s_counter
 
 typedef struct s_file
 {
-	char		line[1000000];
+	char		*line;
 	int			fd;
 }				t_file;
 

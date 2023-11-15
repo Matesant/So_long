@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/14 19:09:04 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/14 23:30:13 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,29 @@ void	ft_init_counters(t_game *matrice)
 	matrice->counter.exit = 0;
 }
 
+void	ft_cmap(char *path, t_game *matrice)
+{
+	char	*map;
+	char	*temp;
+
+	map = ft_strdup("");
+	matrice->file.fd = open(path, O_RDONLY);
+	while (1)
+	{
+		matrice->file.line = get_next_line(matrice->file.fd);
+		if (!matrice->file.line)
+			break ;
+		temp = map;
+		map = ft_strjoin(map, matrice->file.line);
+		free(matrice->file.line);
+		free(temp);
+	}
+	matrice->map.map = ft_split(map, '\n');
+	ft_labla(matrice);
+	free (map);
+	close(matrice->file.fd);
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	maurice;
@@ -40,4 +63,5 @@ int	main(int argc, char **argv)
 	ft_cmap(argv[1], &maurice);
 	ft_map_format(&maurice);
 	ft_map_errors("Bye bye\n", &maurice);
+	ft_map_errors("Bye Bye\n", &maurice);
 }

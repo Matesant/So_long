@@ -1,27 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_delete_matrice.c                                :+:      :+:    :+:   */
+/*   Flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 12:45:24 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/14 23:32:35 by vboxuser         ###   ########.fr       */
+/*   Created: 2023/11/14 23:33:13 by vboxuser          #+#    #+#             */
+/*   Updated: 2023/11/14 23:33:39 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//mudar o cabeçalho
+//muda em
 
-void	ft_delete_matrice(char **matrice)
-{
-	int	i;
+#include "so_long.h"
 
-	i = 0;
-	while (matrice[i])
-	{
-		free(matrice[i]);
-		i++;
-	}
-	free(matrice);
-	matrice = NULL;
-}
