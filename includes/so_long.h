@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/14 23:12:54 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/15 19:30:55 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ typedef struct s_map
 {
 	char		**map;
 	char		**fill;
-	t_thunder	player_p;
+	t_thunder	ppos;
 	t_thunder	exit_p;
 	t_thunder	ms;
 	size_t		x;
-	int			y;
+	size_t		y;
 }				t_map;
 
 // main struct
@@ -89,5 +89,9 @@ void			ft_matrice_lines_columns(t_game *matrice);
 
 // error handling
 void			ft_map_errors(char *str, t_game *matrice);
+
+void			ft_flood_fill(t_game *matrice, int x, int y);
+void			ft_matrice_dup(t_game *matrice);
+void			ft_print_matrice(t_game *matrice);
 
 #endif

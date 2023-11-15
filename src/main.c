@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/14 23:30:13 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/15 19:39:00 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ft_init_counters(t_game *matrice)
 	matrice->counter.player = 0;
 	matrice->counter.floor = 0;
 	matrice->counter.exit = 0;
+	matrice->map.ppos.x = 0;
+	matrice->map.ppos.y = 0;
 }
 
 void	ft_cmap(char *path, t_game *matrice)
@@ -62,6 +64,7 @@ int	main(int argc, char **argv)
 	ft_init_counters(&maurice);
 	ft_cmap(argv[1], &maurice);
 	ft_map_format(&maurice);
+	ft_matrice_dup(&maurice);
+	ft_flood_fill(&maurice, maurice.map.ppos.x, maurice.map.ppos.y);
 	ft_map_errors("Bye bye\n", &maurice);
-	ft_map_errors("Bye Bye\n", &maurice);
 }

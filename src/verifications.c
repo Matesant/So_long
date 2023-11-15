@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:02:23 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/14 23:10:56 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/15 19:41:01 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,9 @@ void	ft_verify_char(t_game *matrice, int c, int x, int y)
 	else if (matrice->map.map[y][x] == 'P')
 	{
 		matrice->counter.player++;
-		matrice->map.player_p.y = y;
-		matrice->map.player_p.y = x;
+		matrice->map.ppos.y = y;
+		matrice->map.ppos.x = x;
+		ft_printf("x = %d, y = %d\n", matrice->map.ppos.x, matrice->map.ppos.y);
 	}
 	else if (matrice->map.map[y][x] == '1')
 		matrice->counter.walls++;
