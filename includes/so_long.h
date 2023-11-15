@@ -6,15 +6,20 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/15 19:30:55 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/15 20:52:46 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+//player size
 # define WIDHT 30
 # define HEIGHT 16
+
+// size of screen
+# define WIDHT_SCREEN 599
+# define HEIGHT_SCREEN 1000
 
 // 42 libs
 # include "../lib/42_libft/libft.h"
@@ -33,6 +38,7 @@ typedef struct s_thunder
 	int			x;
 }				t_thunder;
 
+// counter for characters
 typedef struct s_counter
 {
 	int			collect;
@@ -42,6 +48,7 @@ typedef struct s_counter
 	int			exit;
 }				t_counter;
 
+// get the fd and the gnl line
 typedef struct s_file
 {
 	char		*line;
@@ -72,26 +79,22 @@ typedef struct s_game
 	t_file		file;
 }				t_game;
 
-typedef struct s_d
-{
-	int			i;
-	int			j;
-}				t_d;
-
 // map checkers
 void			ft_verify_char(t_game *matrice, int c, int x, int y);
 void			ft_labla(t_game *matrice);
 void			ft_validate_file(char *file);
 void			ft_map_format(t_game *matrice);
 void			ft_verify_char(t_game *matrice, int c, int x, int y);
-void			ft_cmap(char *path, t_game *matrice);
 void			ft_matrice_lines_columns(t_game *matrice);
 
 // error handling
 void			ft_map_errors(char *str, t_game *matrice);
 
+// flood fill functions
 void			ft_flood_fill(t_game *matrice, int x, int y);
 void			ft_matrice_dup(t_game *matrice);
 void			ft_print_matrice(t_game *matrice);
+
+// mlx functions
 
 #endif

@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   teste.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/12 17:46:25 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/15 20:45:06 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-#define WIDHT 599
-#define HEIGHT 1000
 
 int	main(void)
 {
@@ -23,7 +20,3 @@ int	main(void)
 	mlx_loop(game.mlx_ptr);
 	mlx_delete_image(game.mlx_ptr, 0);
 }
-
-xxxxx
-x   x
-xxxxx
