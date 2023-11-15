@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/15 19:39:00 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/15 20:20:18 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,9 @@ int	main(int argc, char **argv)
 	ft_map_format(&maurice);
 	ft_matrice_dup(&maurice);
 	ft_flood_fill(&maurice, maurice.map.ppos.x, maurice.map.ppos.y);
+	if (maurice.counter.collect != 0 || maurice.counter.exit != 0)
+	{
+		ft_map_errors("Map can't be completed\n", &maurice);
+	}
 	ft_map_errors("Bye bye\n", &maurice);
 }
