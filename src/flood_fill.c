@@ -3,15 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 23:33:13 by vboxuser          #+#    #+#             */
-/*   Updated: 2023/11/15 21:03:22 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:49:02 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//mudar o cabeçalho
-//muda em
 
 #include "so_long.h"
 
