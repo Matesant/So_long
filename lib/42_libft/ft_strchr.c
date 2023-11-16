@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 15:29:10 by matesant          #+#    #+#             */
-/*   Updated: 2023/08/04 16:50:13 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/16 17:57:40 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
+	int	i;
 
-	i = 0;
-	while (s[i])
-	{
+	i = -1;
+	while (s[++i])
 		if (s[i] == (char)c)
 			return ((char *)s + i);
-		i++;
-	}
 	if (s[i] == (char)c)
 		return ((char *)s + i);
 	return (NULL);

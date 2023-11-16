@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_matrice.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 19:29:33 by vboxuser          #+#    #+#             */
-/*   Updated: 2023/11/15 19:32:18 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/16 17:15:43 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_print_matrice(t_game *matrice)
+void	ft_print_matrice(char **matrice)
 {
 	int	i;
 
 	i = -1;
-	while (matrice->map.fill[++i])
-		ft_printf("%s\n", matrice->map.fill[i]);
+	while (matrice[++i])
+		ft_printf("%s\n", matrice[i]);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verifications.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:02:23 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/15 20:23:00 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:28:34 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	ft_rush_00(t_game *neo)
 		}
 		y++;
 	}
+	if (neo->map.x * 64 > 1920 || neo->map.y * 64 > 1080)
+		ft_map_errors("Invalid map size\n", neo);
 }
 
 void	ft_map_format(t_game *matrice)
@@ -46,8 +48,6 @@ void	ft_map_format(t_game *matrice)
 		ft_map_errors("Wrong number of collectibles", matrice);
 	if (matrice->counter.exit != 1)
 		ft_map_errors("Wrong number of exits", matrice);
-	if (matrice->counter.floor < 3)
-		ft_map_errors("Wrong number of floors", matrice);
 	if (matrice->counter.walls < 12)
 		ft_map_errors("Wrong number of walls", matrice);
 	if (matrice->counter.player != 1)
@@ -65,39 +65,58 @@ void	ft_labla(t_game *matrice)
 		x = -1;
 		while (matrice->map.map[y][++x])
 		{
-			ft_verify_char(matrice, matrice->map.map[y][x], x, y);
+			if (!ft_strchr("CEP10", matrice->map.map[y][x]))
+			{
+				ft_map_errors("Invalid character", matrice);
+			}
+			ft_verify_char(matrice, matrice->map.map[y][x], y, x);
 		}
 	}
 }
 
-void	ft_verify_char(t_game *matrice, int c, int x, int y)
+void	ft_verify_char(t_game *matrice, int c, int y, int x)
 {
-	if (ft_strchr("01CEP", c) == NULL)
-		ft_map_errors("Invalid character", matrice);
-	if (matrice->map.map[y][x] == 'C')
+	if (c == 'C')
+	{
 		matrice->counter.collect++;
-	else if (matrice->map.map[y][x] == 'E')
+		matrice->counter.collect_fill++;
+	}
+	else if (c == 'E')
 		matrice->counter.exit++;
-	else if (matrice->map.map[y][x] == 'P')
+	else if (c == 'P')
 	{
 		matrice->counter.player++;
 		matrice->map.ppos.y = y;
 		matrice->map.ppos.x = x;
 	}
-	else if (matrice->map.map[y][x] == '1')
+	else if (c == '1')
 		matrice->counter.walls++;
-	else if (matrice->map.map[y][x] == '0')
+	else if (c == '0')
 		matrice->counter.floor++;
 }
 
 void	ft_validate_file(char *file)
 {
-	int	i;
+	int		fd;
+	char	*line;
+	char	line2;
 
-	i = -1;
-	while (file[++i])
+	line2 = '\0';
+	if (ft_strncmp(file + ft_strlen(file) - 4, ".ber", 4) != 0)
+		ft_map_errors("Invalid file\n", NULL);
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		ft_map_errors("Invalid file\n", NULL);
+	read(fd, &line2, 1);
+	if (line2 == '\n')
+		ft_map_errors("empty File\n", NULL);
+	line = get_next_line(fd);
+	if (line == NULL || line[0] == '\0' || line[0] == '\n' || line[0] == '\r')
 	{
-		if (!(ft_strncmp(file + ft_strlen(file) - 4, ".ber", 4) == 0))
-			ft_map_errors("Invalid extension\n", NULL);
+		close(fd);
+		free(line);
+		ft_map_errors("Invalid file\n", NULL);
 	}
+	close(fd);
+	free(line);
 }
