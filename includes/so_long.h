@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/15 20:52:46 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/16 00:13:14 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # define HEIGHT 16
 
 // size of screen
-# define WIDHT_SCREEN 599
-# define HEIGHT_SCREEN 1000
+# define WIDHT_SCREEN 64
+# define HEIGHT_SCREEN 64
 
 // 42 libs
 # include "../lib/42_libft/libft.h"
@@ -27,16 +27,34 @@
 # include "../lib/Get_next_line/get_next_line.h"
 
 // other libs
-//# include "../MLX42/include/MLX42/MLX42.h"
+# include "../MLX42/include/MLX42/MLX42.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <stdbool.h>
 
 typedef struct s_thunder
 {
 	int			y;
 	int			x;
 }				t_thunder;
+
+// images an cordinates
+typedef struct s_draw
+{
+	mlx_image_t	*img;
+	size_t		x;
+	size_t		y;
+}	t_draw;
+
+typedef struct s_img
+{
+	mlx_image_t	*floor;
+	mlx_image_t	*wall;
+	t_draw		*player;
+	t_draw		exit;
+	t_draw		collect[1000];
+}	t_img;
 
 // counter for characters
 typedef struct s_counter
@@ -53,6 +71,7 @@ typedef struct s_file
 {
 	char		*line;
 	int			fd;
+	char		*fill;
 }				t_file;
 
 // ms is for map size
@@ -93,8 +112,10 @@ void			ft_map_errors(char *str, t_game *matrice);
 // flood fill functions
 void			ft_flood_fill(t_game *matrice, int x, int y);
 void			ft_matrice_dup(t_game *matrice);
+void			ft_close_fill(char *str, t_game *matrice);
 void			ft_print_matrice(t_game *matrice);
 
 // mlx functions
+void			ft_start_mlx(t_game *matrice);
 
 #endif

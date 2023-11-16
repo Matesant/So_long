@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 23:33:13 by vboxuser          #+#    #+#             */
-/*   Updated: 2023/11/15 20:43:57 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/15 21:03:22 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_flood_fill(t_game *matrice, int x, int y)
 	ft_flood_fill(matrice, x, y - 1);
 }
 
-void	ft_matrice_dup(t_game *matrice)
+/*void	ft_matrice_dup(t_game *matrice)
 {
 	size_t	i;
 	size_t	j;
@@ -46,4 +46,4 @@ void	ft_matrice_dup(t_game *matrice)
 			matrice->map.fill[i][j] = matrice->map.map[i][j];
 		}
 	}
-}
+}*/
