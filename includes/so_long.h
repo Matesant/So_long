@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/17 18:05:07 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:42:50 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ typedef struct s_map
 // main struct
 typedef struct s_game
 {
-	void			*mlx_ptr;
+	mlx_t			*mlx_ptr;
 	void			*win_ptr;
 	t_map			map;
 	t_counter		counter;
@@ -125,6 +125,6 @@ void				load_path(char **path);
 void				all_image(t_game *matrice);
 
 // key hooks
-void				key_hooks(t_game *matrice);
+void				key_hooks(mlx_key_data_t key_args, t_game *matrice);
 
 #endif
