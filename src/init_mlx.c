@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/17 16:51:49 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:17:42 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	put_floor(t_game *matrice)
-{
-	mlx_image_to_window(matrice->mlx_ptr, matrice->lucas.floor.img, 0, 0);
-}
-
 void	ft_put_window(t_game *matrice, int c, int x, int y)
 {
+	int	i;
+
+	i = -1;
 	if (c == '1')
 		mlx_image_to_window(matrice->mlx_ptr, matrice->lucas.wall.img, x, y);
 	else if (c == 'P')
 		mlx_image_to_window(matrice->mlx_ptr, matrice->lucas.player.img, x, y);
-/*	else if (c == 'C')
-		mlx_image_to_window(matrice->mlx_ptr, matrice->lucas.collect[].img, x, y);*/
+	else if (c == 'C')
+		mlx_image_to_window(matrice->mlx_ptr, matrice->lucas.collect[++i].img,
+			x, y);
 	else if (c == 'E')
 		mlx_image_to_window(matrice->mlx_ptr, matrice->lucas.exit.img, x, y);
 }
@@ -39,8 +38,8 @@ void	ft_put(t_game *matrice)
 	widht = matrice->map.x * 64;
 	height = matrice->map.y * 64;
 	mlx_resize_image(matrice->lucas.floor.img, widht, height);
+	mlx_image_to_window(matrice->mlx_ptr, matrice->lucas.floor.img, 0, 0);
 	i = -1;
-	put_floor(matrice);
 	while (matrice->map.map[++i])
 	{
 		j = -1;
@@ -49,37 +48,6 @@ void	ft_put(t_game *matrice)
 			ft_put_window(matrice, matrice->map.map[i][j], j * 64, i * 64);
 		}
 	}
-}
-
-t_draw	image_load(void *mlx, char *path)
-{
-	t_draw	img;
-
-	img.texture = mlx_load_png(path);
-	img.img = mlx_texture_to_image(mlx, img.texture);
-	return (img);
-}
-
-void	load_path(char **path)
-{
-	path[0] = "assets/player.png";
-	path[1] = "assets/wall.png";
-	path[2] = "assets/floor.png";
-	path[3] = "assets/exit.png";
-	//path[4] = "assets/enimy.png";
-	path[5] = "assets/collectable.png";
-}
-
-void	all_image(t_game *matrice)
-{
-	char	*path[6];
-
-	load_path(path);
-	matrice->lucas.floor = image_load(matrice->mlx_ptr, path[2]);
-	matrice->lucas.wall = image_load(matrice->mlx_ptr, path[1]);
-	matrice->lucas.player = image_load(matrice->mlx_ptr, path[0]);
-	matrice->lucas.exit = image_load(matrice->mlx_ptr, path[3]);
-	//matrice->lucas.collect = image_load(matrice->mlx_ptr, path[5]);
 }
 
 void	ft_start_mlx(t_game *matrice)

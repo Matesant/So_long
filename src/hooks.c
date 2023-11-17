@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 12:34:25 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/17 17:04:16 by matesant         ###   ########.fr       */
+/*   Created: 2023/11/17 17:57:40 by matesant          #+#    #+#             */
+/*   Updated: 2023/11/17 18:28:25 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_map_errors(char *str, t_game *matrice)
+void	key_hooks(void *param)
 {
-	ft_printf("%s", str);
-	if (matrice)
-	{
-		if (matrice->map.fill)
-			ft_delete_matrice(matrice->map.fill);
-		if (matrice->map.map)
-			ft_delete_matrice(matrice->map.map);
-	}
-	exit(1);
+	t_game	*matrice;
+	mlx_key_data_t key_args;
+
+	matrice = (t_game *)param;
+	if (key_args.key == MLX_KEY_ESC)
+		mlx_loop_end(key_args.mlx_ptr);
 }

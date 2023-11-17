@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/16 18:33:27 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:30:16 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	main(int argc, char **argv)
 		ft_map_errors("Map can't be finished\n", &maurice);
 	}
 	ft_start_mlx(&maurice);
+	mlx_loop_hook(maurice.mlx_ptr, &key_hooks, (void *)&maurice);
 	mlx_loop(maurice.mlx_ptr);
 	mlx_terminate(maurice.mlx_ptr);
 	ft_map_errors("Bye bye\n", &maurice);

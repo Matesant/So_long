@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/16 18:52:44 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:05:07 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,13 @@ void				ft_print_matrice(char **matrice);
 
 // mlx functions
 void				ft_start_mlx(t_game *matrice);
+
+// image functions
+t_draw				image_load(void *mlx, char *path);
+void				load_path(char **path);
+void				all_image(t_game *matrice);
+
+// key hooks
+void				key_hooks(t_game *matrice);
 
 #endif
