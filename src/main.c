@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/19 22:50:53 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:07:18 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	jorge(t_game *matrice)
+void	key_assign(t_game *matrice)
 {
 	mlx_key_hook(matrice->mlx_ptr, &key_hooks, matrice);
 }
@@ -78,7 +78,7 @@ int	main(int argc, char **argv)
 		ft_map_errors("Map can't be finished\n", &maurice);
 	}
 	ft_start_mlx(&maurice);
-	jorge(&maurice);
+	key_assign(&maurice);
 	mlx_loop(maurice.mlx_ptr);
 	mlx_terminate(maurice.mlx_ptr);
 	ft_map_errors("Bye bye\n", &maurice);

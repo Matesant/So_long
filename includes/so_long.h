@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/19 22:48:32 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:19:49 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,13 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-typedef struct s_thunder
-{
-	int				y;
-	int				x;
-}					t_thunder;
-
 // images an cordinates
 typedef struct s_draw
 {
 	mlx_image_t		*img;
 	mlx_texture_t	*texture;
+	int				x;
+	int				y;
 }					t_draw;
 
 typedef struct s_img
@@ -81,9 +77,8 @@ typedef struct s_map
 {
 	char			**map;
 	char			**fill;
-	t_thunder		ppos;
-	t_thunder		exit_p;
-	t_thunder		ms;
+	t_draw			ppos;
+	t_draw			exit_p;
 	size_t			x;
 	size_t			y;
 }					t_map;
@@ -96,7 +91,7 @@ typedef struct s_game
 	t_map			map;
 	t_counter		counter;
 	t_file			file;
-	t_img			lucas;
+	t_img			img;
 }					t_game;
 
 // map checkers
@@ -112,7 +107,6 @@ void				ft_map_errors(char *str, t_game *matrice);
 
 // flood fill functions
 void				ft_flood_fill(t_game *matrice, int x, int y);
-void				ft_matrice_dup(t_game *matrice);
 void				ft_close_fill(char *str, t_game *matrice);
 void				ft_print_matrice(char **matrice);
 

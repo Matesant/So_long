@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/19 22:36:27 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:20:31 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void	ft_put_window(t_game *matrice, int c, int x, int y)
 
 	i = -1;
 	if (c == '1')
-		mlx_image_to_window(matrice->mlx_ptr, matrice->lucas.wall.img, x, y);
+		mlx_image_to_window(matrice->mlx_ptr, matrice->img.wall.img, x, y);
 	else if (c == 'P')
-		mlx_image_to_window(matrice->mlx_ptr, matrice->lucas.player.img, x, y);
+		mlx_image_to_window(matrice->mlx_ptr, matrice->img.player.img, x, y);
 	else if (c == 'C')
-		mlx_image_to_window(matrice->mlx_ptr, matrice->lucas.collect[++i].img,
+		mlx_image_to_window(matrice->mlx_ptr, matrice->img.collect[++i].img,
 			x, y);
 	else if (c == 'E')
-		mlx_image_to_window(matrice->mlx_ptr, matrice->lucas.exit.img, x, y);
+		mlx_image_to_window(matrice->mlx_ptr, matrice->img.exit.img, x, y);
 }
 
 void	ft_put(t_game *matrice)
@@ -37,8 +37,8 @@ void	ft_put(t_game *matrice)
 
 	widht = matrice->map.x * 64;
 	height = matrice->map.y * 64;
-	mlx_resize_image(matrice->lucas.floor.img, widht, height);
-	mlx_image_to_window(matrice->mlx_ptr, matrice->lucas.floor.img, 0, 0);
+	mlx_resize_image(matrice->img.floor.img, widht, height);
+	mlx_image_to_window(matrice->mlx_ptr, matrice->img.floor.img, 0, 0);
 	i = -1;
 	while (matrice->map.map[++i])
 	{

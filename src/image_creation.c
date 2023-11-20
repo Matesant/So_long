@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:06:07 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/17 17:17:51 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/20 10:57:09 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ void	all_image(t_game *matrice)
 
 	i = -1;
 	load_path(path);
-	matrice->lucas.floor = image_load(matrice->mlx_ptr, path[2]);
-	matrice->lucas.wall = image_load(matrice->mlx_ptr, path[1]);
-	matrice->lucas.player = image_load(matrice->mlx_ptr, path[0]);
-	matrice->lucas.exit = image_load(matrice->mlx_ptr, path[3]);
+	matrice->img.floor = image_load(matrice->mlx_ptr, path[2]);
+	matrice->img.wall = image_load(matrice->mlx_ptr, path[1]);
+	matrice->img.player = image_load(matrice->mlx_ptr, path[0]);
+	matrice->img.exit = image_load(matrice->mlx_ptr, path[3]);
 	while (++i < matrice->counter.collect)
-		matrice->lucas.collect[i] = image_load(matrice->mlx_ptr, path[5]);
-	matrice->lucas.collect[0] = image_load(matrice->mlx_ptr, path[5]);
+		matrice->img.collect[i] = image_load(matrice->mlx_ptr, path[5]);
+	matrice->img.collect[0] = image_load(matrice->mlx_ptr, path[5]);
 }
