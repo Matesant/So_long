@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/17 18:41:45 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/19 22:50:53 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	jorge(t_game *matrice)
 {
-	mlx_key_hook(matrice->mlx_ptr, key_hooks, (void *)matrice);
+	mlx_key_hook(matrice->mlx_ptr, &key_hooks, matrice);
 }
+
 void	ft_matrice_lines_columns(t_game *matrice)
 {
 	matrice->map.x = 0;

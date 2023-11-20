@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/17 18:42:50 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/19 22:48:32 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,6 @@ void				load_path(char **path);
 void				all_image(t_game *matrice);
 
 // key hooks
-void				key_hooks(mlx_key_data_t key_args, t_game *matrice);
+void				key_hooks(mlx_key_data_t key_args, void *param);
 
 #endif
