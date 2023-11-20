@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:06:07 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/20 10:57:09 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:22:46 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	load_path(char **path)
 
 void	all_image(t_game *matrice)
 {
-	char *path[6];
-	int i;
+	char	*path[6];
+	int		i;
 
 	i = -1;
 	load_path(path);

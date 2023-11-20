@@ -6,20 +6,30 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/20 11:19:49 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/20 17:54:13 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-// player size
-# define WIDHT 30
-# define HEIGHT 16
+// key hooks
+# define W MLX_KEY_W
+# define A MLX_KEY_A
+# define S MLX_KEY_S
+# define D MLX_KEY_D
+# define UP MLX_KEY_UP
+# define DOWN MLX_KEY_DOWN
+# define LEFT MLX_KEY_LEFT
+# define RIGHT MLX_KEY_RIGHT
+# define P MLX_PRESS
+# define R MLX_REPEAT
 
-// size of screen
+// size image
 # define WIDHT_SCREEN 64
 # define HEIGHT_SCREEN 64
+# define WIDTH 64
+# define HEIGHT 64
 
 // 42 libs
 # include "../lib/42_libft/libft.h"
@@ -33,13 +43,19 @@
 # include <stdio.h>
 # include <stdlib.h>
 
+typedef struct s_positions
+{
+	int				y;
+	int				x;
+}					t_positions;
+
 // images an cordinates
 typedef struct s_draw
 {
 	mlx_image_t		*img;
 	mlx_texture_t	*texture;
-	int				x;
-	int				y;
+	int				*x;
+	int				*y;
 }					t_draw;
 
 typedef struct s_img
@@ -77,8 +93,7 @@ typedef struct s_map
 {
 	char			**map;
 	char			**fill;
-	t_draw			ppos;
-	t_draw			exit_p;
+	t_positions		ppos;
 	size_t			x;
 	size_t			y;
 }					t_map;
