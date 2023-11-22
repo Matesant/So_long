@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/20 17:54:13 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/21 21:44:06 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 # define RIGHT MLX_KEY_RIGHT
 # define P MLX_PRESS
 # define R MLX_REPEAT
+# define WALL 49
+# define COLLECT 67
+# define FLOOR 48
 
 // size image
 # define WIDHT_SCREEN 64
@@ -64,7 +67,6 @@ typedef struct s_img
 	t_draw			wall;
 	t_draw			player;
 	t_draw			exit;
-	t_draw			collect[1000];
 }					t_img;
 
 // counter for characters
@@ -106,6 +108,8 @@ typedef struct s_game
 	t_map			map;
 	t_counter		counter;
 	t_file			file;
+	int				count;
+	t_draw			collect[10000];
 	t_img			img;
 }					t_game;
 

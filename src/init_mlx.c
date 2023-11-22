@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/20 17:26:52 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/21 21:46:41 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_put_window(t_game *matrice, int c, int x, int y)
 	else if (c == 'P')
 		mlx_image_to_window(matrice->mlx_ptr, matrice->img.player.img, x, y);
 	else if (c == 'C')
-		mlx_image_to_window(matrice->mlx_ptr, matrice->img.collect[++i].img, x,
+		mlx_image_to_window(matrice->mlx_ptr, matrice->collect[++i].img, x,
 			y);
 	else if (c == 'E')
 		mlx_image_to_window(matrice->mlx_ptr, matrice->img.exit.img, x, y);
