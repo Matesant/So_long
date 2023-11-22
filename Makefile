@@ -1,11 +1,11 @@
 NAME	:= So_long
-CFLAGS	:= -Wextra -Wall -g3
+CFLAGS	:= -Wextra -Wall -Werror -g3
 LIBMLX	:= ./MLX42
 BIN		:= ./bin/
 MLX 	:= ./MLX42/build/libmlx42.a
 HEADERS	:= -I ./includes -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
-SRCS	:=  src/hooks.c src/image_creation.c src/init_mlx.c src/errors.c src/verifications.c src/ft_print_matrice.c src/flood_fill.c src/main.c
+SRCS	:=  src/finish.c src/hooks.c src/image_creation.c src/init_mlx.c src/errors.c src/verifications.c src/flood_fill.c src/main.c
 OBJS	:= ${SRCS:src/%.c=$(BIN)%.o}
 LIBFT_DIR:= ../So_long/lib/42_libft/
 PRINTF_DIR	:= ../So_long/lib/Printf/

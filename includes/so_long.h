@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/21 23:07:51 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:39:48 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ typedef struct s_draw
 {
 	mlx_image_t		*img;
 	mlx_texture_t	*texture;
-	int				*x;
-	int				*y;
+	int				x;
+	int				y;
 }					t_draw;
 
 typedef struct s_img
@@ -125,6 +125,8 @@ void				ft_matrice_lines_columns(t_game *matrice);
 
 // error handling
 void				ft_map_errors(char *str, t_game *matrice);
+void				ft_delete_all(t_game *matrice);
+void				ft_delete(t_game *matrice);
 
 // flood fill functions
 void				ft_flood_fill(t_game *matrice, int x, int y);

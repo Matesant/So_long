@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/20 12:10:45 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:02:41 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_init_counters(t_game *matrice)
 	matrice->map.ppos.x = 0;
 	matrice->map.ppos.y = 0;
 	matrice->counter.collect_fill = 0;
+	matrice->count = 0;
 }
 
 void	ft_cmap(char *path, t_game *matrice)
@@ -80,6 +81,5 @@ int	main(int argc, char **argv)
 	ft_start_mlx(&maurice);
 	key_assign(&maurice);
 	mlx_loop(maurice.mlx_ptr);
-	mlx_terminate(maurice.mlx_ptr);
-	ft_map_errors("Bye bye\n", &maurice);
+	ft_delete_all(&maurice);
 }

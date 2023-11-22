@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/21 22:17:49 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:41:49 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_put_window(t_game *matrice, int c, int x, int y)
 {
-	int	i;
-
-	i = -1;
 	if (c == '1')
 		mlx_image_to_window(matrice->mlx_ptr, matrice->img.wall.img, x, y);
 	else if (c == 'P')

@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:57:40 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/21 23:16:45 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:56:30 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	ft_verify_path(t_game *check, int x, int y, int i)
 		mlx_close_window(check->mlx_ptr);
 	else
 		return (1);
+	return (1);
 }
 
 void	ft_collect(t_game *check, int x, int y)
@@ -96,7 +97,3 @@ void	ft_collect(t_game *check, int x, int y)
 	}
 }
 
-void	load_exit(t_game *game)
-{
-	
-}

@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:06:07 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/21 22:29:54 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:01:04 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	place_coin(t_game *game, mlx_image_t **img, char *path)
 
 void	init_collect(t_game *game, int x, int y, int *count)
 {
+	game->img.collect[*count].x = 0;
+	game->img.collect[*count].y = 0;
 	place_coin(game, &game->img.collect[*count].img, COLLECT_PNG);
 	game->img.collect[*count].x = x;
 	game->img.collect[*count].y = y;
