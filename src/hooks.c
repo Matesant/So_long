@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:57:40 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/21 22:50:58 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/21 23:01:14 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,16 @@ void	ft_collect(t_game *check, int x, int y)
 	{
 		check->map.map[y / HEIGHT][x / WIDTH] = FLOOR;
 		i = 0;
-		while (i < check->counter.collect)
+		while (i < check->counter.collect && check->count2 < check->counter.collect)
 		{
 			collect_x = check->img.collect[i].x;
 			collect_y = check->img.collect[i].y;
-			printf("collect_x = %d\n", collect_x);
-			if (collect_x == COLLECT && collect_y == COLLECT)
+			if (collect_x == x && collect_y == y)
+			{
 				mlx_delete_image(check->mlx_ptr, check->img.collect[i].img);
+				check->count2++;
+				break ;
+			}
 			i++;
 		}
 	}
