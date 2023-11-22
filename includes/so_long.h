@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/21 22:53:57 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/21 23:07:51 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ typedef struct s_game
 	t_counter		counter;
 	t_file			file;
 	int				count;
-	int				count2;
+	int				*count2;
 	t_img			img;
 }					t_game;
 
