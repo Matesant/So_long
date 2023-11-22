@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/21 21:44:06 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/21 22:36:16 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define WALL 49
 # define COLLECT 67
 # define FLOOR 48
+# define COLLECT_PNG "assets/collectable.png"
 
 // size image
 # define WIDHT_SCREEN 64
@@ -67,6 +68,7 @@ typedef struct s_img
 	t_draw			wall;
 	t_draw			player;
 	t_draw			exit;
+	t_draw			collect[10000];
 }					t_img;
 
 // counter for characters
@@ -109,7 +111,6 @@ typedef struct s_game
 	t_counter		counter;
 	t_file			file;
 	int				count;
-	t_draw			collect[10000];
 	t_img			img;
 }					t_game;
 
@@ -136,6 +137,7 @@ void				ft_start_mlx(t_game *matrice);
 t_draw				image_load(void *mlx, char *path);
 void				load_path(char **path);
 void				all_image(t_game *matrice);
+void				init_collect(t_game *game, int x, int y, int *count);
 
 // key hooks
 void				key_hooks(mlx_key_data_t key_args, void *param);

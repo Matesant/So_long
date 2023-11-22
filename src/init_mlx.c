@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/21 21:46:41 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/21 22:17:49 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	ft_put_window(t_game *matrice, int c, int x, int y)
 	else if (c == 'P')
 		mlx_image_to_window(matrice->mlx_ptr, matrice->img.player.img, x, y);
 	else if (c == 'C')
-		mlx_image_to_window(matrice->mlx_ptr, matrice->collect[++i].img, x,
-			y);
+		init_collect(matrice, x, y, &matrice->count);
 	else if (c == 'E')
 		mlx_image_to_window(matrice->mlx_ptr, matrice->img.exit.img, x, y);
 }
@@ -54,7 +53,7 @@ void	ft_start_mlx(t_game *matrice)
 {
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	matrice->mlx_ptr = mlx_init(WIDHT_SCREEN * matrice->map.x, HEIGHT_SCREEN
-		* matrice->map.y, "so_long", true);
+			* matrice->map.y, "so_long", true);
 	if (!matrice->mlx_ptr)
 		ft_map_errors("Error mlx_init\n", matrice);
 	all_image(matrice);

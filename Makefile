@@ -1,5 +1,5 @@
 NAME	:= So_long
-CFLAGS	:= -Wextra -Wall -Werror -g3
+CFLAGS	:= -Wextra -Wall -g3
 LIBMLX	:= ./MLX42
 BIN		:= ./bin/
 MLX 	:= ./MLX42/build/libmlx42.a

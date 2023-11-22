@@ -6,7 +6,7 @@
 /*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:57:40 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/21 21:48:16 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/21 22:50:58 by vboxuser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,25 +69,24 @@ int	ft_verify_path(t_game *check, int x, int y, int i)
 
 void	ft_collect(t_game *check, int x, int y)
 {
-	//int	i;
-	//int	collect_x;
-	//int	collect_y;
+	int	i;
+	int	collect_x;
+	int	collect_y;
 
-	//collect_x = 0;
-	//collect_y = 0;
+	collect_x = 0;
+	collect_y = 0;
 	if (check->map.map && check->map.map[y / HEIGHT][x / WIDTH] == COLLECT)
 	{
 		check->map.map[y / HEIGHT][x / WIDTH] = FLOOR;
-		//i = 1;
-		ft_printf("Collect: %d\n", check->map.map[y / HEIGHT][x / WIDTH]);
-		/*while (i < check->counter.collect)
+		i = 0;
+		while (i < check->counter.collect)
 		{
-			collect_x = check->img.collect[i].img->instances[0].x;
-			printf("collectx: %d\n", collect_x);
-			collect_y = check->img.collect[i].img->instances[0].y;
-			printf("collecty: %d\n", collect_y);
-			printf("i: %d\n", i);
+			collect_x = check->img.collect[i].x;
+			collect_y = check->img.collect[i].y;
+			printf("collect_x = %d\n", collect_x);
+			if (collect_x == COLLECT && collect_y == COLLECT)
+				mlx_delete_image(check->mlx_ptr, check->img.collect[i].img);
 			i++;
-		}*/
+		}
 	}
 }
