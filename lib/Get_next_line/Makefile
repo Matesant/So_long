@@ -13,15 +13,15 @@ OBJS =  $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $?
+	@ar rcs $(NAME) $?
 
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@ -I $(HEADER)
+	@$(CC) $(FLAGS) -c $< -o $@ -I $(HEADER)
 
 clean:
-	$(RM) $(OBJS)
+	@$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all

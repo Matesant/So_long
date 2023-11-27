@@ -27,18 +27,18 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $?
+	@ar rcs $(NAME) $?
 
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@ -I $(HEADER)
+	@$(CC) $(FLAGS) -c $< -o $@ -I $(HEADER)
 
 bonus:
 	@make OBJS="$(OBJS_BONUS)" --no-print-directory
 
 clean:
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	@$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
