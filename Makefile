@@ -5,7 +5,6 @@ LIBMLX	:= ./MLX42
 BIN		:= ./bin/
 MLX 	:= ./MLX42/build/libmlx42.a
 HEADERS	:= -I ./includes -I $(LIBMLX)/include
-HEADERS_BONUS	:= -I ./includes_bonus -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS	:=  src/hooks.c src/image_creation.c src/init_mlx.c src/errors.c src/verifications.c src/flood_fill.c src/main.c
 SRCS_BONUS	:=  src_bonus/hooks_bonus.c src_bonus/image_creation_bonus.c src_bonus/init_mlx_bonus.c src_bonus/errors_bonus.c src_bonus/verifications_bonus.c src_bonus/flood_fill_bonus.c src_bonus/main_bonus.c
@@ -44,7 +43,7 @@ $(NAME_BONUS): $(OBJS_BONUS) $(MLX)
 	@make -C $(LIBFT_DIR)
 	@make -C $(PRINTF_DIR)
 	@make -C $(GNL_DIR)
-	@$(CC) $(OBJS_BONUS) $(MLX) $(LIBS) $(LIBS42) $(HEADERS_BONUS) -o $(NAME_BONUS)
+	@$(CC) $(OBJS_BONUS) $(MLX) $(LIBS) $(LIBS42) -o $(NAME_BONUS)
 
 clean:
 	@rm -rf $(OBJS)
