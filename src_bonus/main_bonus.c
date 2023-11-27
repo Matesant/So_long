@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:51:29 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:29:14 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_init_counters(t_game *matrice)
 	matrice->counter.walls = 0;
 	matrice->counter.player = 0;
 	matrice->counter.floor = 0;
+	matrice->counter.enemy = 0;
 	matrice->counter.exit = 0;
 	matrice->map.ppos.x = 0;
 	matrice->map.ppos.y = 0;
@@ -63,7 +64,7 @@ void	ft_cmap(char *path, t_game *matrice)
 	matrice->map.fill = ft_split(map, '\n');
 	free(map);
 	close(matrice->file.fd);
-	ft_labla(matrice);
+	ft_loop_char(matrice);
 }
 
 int	main(int argc, char **argv)
@@ -71,7 +72,7 @@ int	main(int argc, char **argv)
 	t_game	matrice;
 
 	if (argc != 2)
-		ft_map_errors("Invalid number of arguments\n", NULL);
+		ft_exit_file("Invalid arguments\n");
 	ft_init_counters(&matrice);
 	ft_validate_file(argv[1]);
 	ft_cmap(argv[1], &matrice);
@@ -82,5 +83,4 @@ int	main(int argc, char **argv)
 	ft_start_mlx(&matrice);
 	key_assign(&matrice);
 	mlx_loop(matrice.mlx_ptr);
-	ft_map_errors("Thank you bye bye matane\n", &matrice);
 }

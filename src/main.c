@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:06:48 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:10:02 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_cmap(char *path, t_game *matrice)
 	matrice->map.fill = ft_split(map, '\n');
 	free(map);
 	close(matrice->file.fd);
-	ft_labla(matrice);
+	ft_loop_char(matrice);
 }
 
 int	main(int argc, char **argv)
@@ -70,16 +70,14 @@ int	main(int argc, char **argv)
 	t_game	maurice;
 
 	if (argc != 2)
-		ft_map_errors("Invalid number of arguments", NULL);
+		ft_exit_file("Invalid arguments\n");
 	ft_init_counters(&maurice);
 	ft_validate_file(argv[1]);
 	ft_cmap(argv[1], &maurice);
 	ft_map_format(&maurice);
 	ft_flood_fill(&maurice, maurice.map.ppos.x, maurice.map.ppos.y);
 	if (maurice.counter.collect_fill != 0 || maurice.counter.exit != 0)
-	{
 		ft_map_errors("Map can't be finished\n", &maurice);
-	}
 	ft_start_mlx(&maurice);
 	key_assign(&maurice);
 	mlx_loop(maurice.mlx_ptr);

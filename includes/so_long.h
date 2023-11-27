@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 11:56:48 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:58:03 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ typedef struct s_game
 
 // map checkers
 void				ft_verify_char(t_game *matrice, int c, int x, int y);
-void				ft_labla(t_game *matrice);
+void				ft_loop_char(t_game *matrice);
 void				ft_validate_file(char *file);
 void				ft_map_format(t_game *matrice);
 void				ft_verify_char(t_game *matrice, int c, int x, int y);

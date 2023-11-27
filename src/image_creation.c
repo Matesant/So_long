@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:06:07 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:06:44 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:01:17 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	load_path(char **path)
 	path[1] = "assets/wall.png";
 	path[2] = "assets/floor.png";
 	path[3] = "assets/exit.png";
-	// path[4] = "assets/enimy.png";
 }
 
 void	all_image(t_game *matrice)

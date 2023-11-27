@@ -6,13 +6,13 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:57:40 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:45:50 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:35:40 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int	ft_verify_path(t_game *check, int x, int y);
+int		ft_verify_path(t_game *check, int x, int y);
 
 void	move_sid(t_game *map, int x, int y)
 {
@@ -99,7 +99,10 @@ void	ft_init_exit_enemy(t_game *map, int x, int y)
 	if (map->img.exit.img->instances[0].x == x
 		&& map->img.exit.img->instances[0].y == y && map->count == 0)
 		ft_map_errors("Zaz, presunt sandwich!\n", map);
-	if (map->img.enemy.img->instances[0].x == x
-		&& map->img.enemy.img->instances[0].y == y)
-		ft_map_errors("Pipipipipi\n", map);
+	if (map->counter.enemy > 0)
+	{
+		if (map->img.enemy.img->instances[0].x == x
+			&& map->img.enemy.img->instances[0].y == y)
+			ft_map_errors("Pipipipipi\n", map);
+	}
 }

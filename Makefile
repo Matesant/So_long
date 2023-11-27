@@ -1,5 +1,5 @@
-NAME	:= So_long
-NAME_BONUS	:= So_long_bonus
+NAME	:= so_long
+NAME_BONUS	:= so_long_bonus
 CFLAGS	:= -Wextra -Wall -Werror -g3
 LIBMLX	:= ./MLX42
 BIN		:= ./bin/

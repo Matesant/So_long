@@ -6,13 +6,13 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:02:23 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:09:16 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:30:18 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	ft_rush_00(t_game *neo)
+void	ft_wall_check(t_game *neo)
 {
 	int	y;
 	int	x;
@@ -21,7 +21,7 @@ void	ft_rush_00(t_game *neo)
 	ft_matrice_lines_columns(neo);
 	while (neo->map.map[y])
 	{
-		if (neo->map.x != ft_strlen(neo->map.map[y]) || neo->map.x < 12)
+		if (neo->map.x != ft_strlen(neo->map.map[y]))
 			ft_map_errors("Invalid map size\n", neo);
 		x = -1;
 		while (neo->map.map[y][++x])
@@ -43,18 +43,18 @@ void	ft_rush_00(t_game *neo)
 
 void	ft_map_format(t_game *matrice)
 {
-	ft_rush_00(matrice);
+	ft_wall_check(matrice);
 	if (matrice->counter.collect == 0)
-		ft_map_errors("Wrong number of collectibles", matrice);
+		ft_map_errors("Wrong number of collectibles\n", matrice);
 	if (matrice->counter.exit != 1)
-		ft_map_errors("Wrong number of exits", matrice);
+		ft_map_errors("Wrong number of exits\n", matrice);
 	if (matrice->counter.walls < 12)
-		ft_map_errors("Wrong number of walls", matrice);
+		ft_map_errors("Wrong number of walls\n", matrice);
 	if (matrice->counter.player != 1)
-		ft_map_errors("Wrong number of players", matrice);
+		ft_map_errors("Wrong number of players\n", matrice);
 }
 
-void	ft_labla(t_game *matrice)
+void	ft_loop_char(t_game *matrice)
 {
 	int	y;
 	int	x;
@@ -66,7 +66,7 @@ void	ft_labla(t_game *matrice)
 		while (matrice->map.map[y][++x])
 		{
 			if (!ft_strchr("CEP10K", matrice->map.map[y][x]))
-				ft_map_errors("Invalid character", matrice);
+				ft_map_errors("Invalid character\n", matrice);
 			ft_verify_char(matrice, matrice->map.map[y][x], y, x);
 		}
 	}
@@ -91,6 +91,8 @@ void	ft_verify_char(t_game *matrice, int c, int y, int x)
 		matrice->counter.walls++;
 	else if (c == '0')
 		matrice->counter.floor++;
+	else if (c == 'K')
+		matrice->counter.enemy++;
 }
 
 void	ft_validate_file(char *file)
