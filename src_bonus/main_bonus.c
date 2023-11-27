@@ -6,11 +6,11 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:07:39 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:09:12 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long._bonus.h"
+#include "so_long_bonus.h"
 
 void	key_assign(t_game *matrice)
 {

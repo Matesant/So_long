@@ -6,11 +6,11 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:57:40 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:07:55 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:08:51 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long._bonus.h"
+#include "so_long_bonus.h"
 
 int	ft_verify_path(t_game *check, int x, int y);
 

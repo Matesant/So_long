@@ -6,11 +6,11 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:06:07 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:07:50 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:09:01 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long._bonus.h"
+#include "so_long_bonus.h"
 
 t_draw	image_load(void *mlx, char *path)
 {

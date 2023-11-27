@@ -31,7 +31,7 @@ $(MLX):
 $(BIN)%.o: src/%.c
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
-%.o: src/%.c
+%.o: src_bonus/%.c
 	@$(CC) $(CFLAGS) -o $@ -c $<
 	
 $(NAME): $(OBJS) $(MLX)
@@ -48,6 +48,7 @@ $(NAME_BONUS): $(OBJS_BONUS) $(MLX)
 
 clean:
 	@rm -rf $(OBJS)
+	@rm -rf $(OBJS_BONUS)
 	@rm -rf $(LIBMLX)/build
 	@make clean -C $(LIBFT_DIR)
 	@make clean -C $(PRINTF_DIR)
@@ -56,6 +57,7 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAME)
+	@rm -rf $(NAME_BONUS)
 	@rm -rf $(LIBFT_PATH)
 	@rm -rf $(PRINTF_PATH)
 	@rm -rf $(GNL_PATH)

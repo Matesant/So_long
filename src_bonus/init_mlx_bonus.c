@@ -6,11 +6,11 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:07:44 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:09:10 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long._bonus.h"
+#include "so_long_bonus.h"
 
 void	ft_put_window(t_game *matrice, int c, int x, int y)
 {

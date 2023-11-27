@@ -6,11 +6,11 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 12:34:25 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:08:05 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:09:23 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long._bonus.h"
+#include "so_long_bonus.h"
 
 void	ft_map_errors(char *str, t_game *matrice)
 {

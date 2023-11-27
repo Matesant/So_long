@@ -6,11 +6,11 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:02:23 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:07:32 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:09:16 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long._bonus.h"
+#include "so_long_bonus.h"
 
 void	ft_rush_00(t_game *neo)
 {
