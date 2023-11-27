@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/22 15:39:48 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:56:48 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ typedef struct s_game
 	t_counter		counter;
 	t_file			file;
 	int				count;
-	int				*count2;
+	int				steps;
 	t_img			img;
 }					t_game;
 
@@ -123,10 +123,11 @@ void				ft_map_format(t_game *matrice);
 void				ft_verify_char(t_game *matrice, int c, int x, int y);
 void				ft_matrice_lines_columns(t_game *matrice);
 
-// error handling
+// error handling && finishing
 void				ft_map_errors(char *str, t_game *matrice);
 void				ft_delete_all(t_game *matrice);
 void				ft_delete(t_game *matrice);
+void				ft_exit_file(char *str);
 
 // flood fill functions
 void				ft_flood_fill(t_game *matrice, int x, int y);
@@ -144,5 +145,7 @@ void				init_collect(t_game *game, int x, int y, int *count);
 
 // key hooks
 void				key_hooks(mlx_key_data_t key_args, void *param);
+void				ft_collect(t_game *check, int x, int y);
+void				ft_init_exit(t_game *map, int x, int y);
 
 #endif

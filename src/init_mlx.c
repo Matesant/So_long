@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/22 15:41:49 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/24 16:42:29 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,7 @@ void	ft_put(t_game *matrice)
 {
 	int	i;
 	int	j;
-	int	widht;
-	int	height;
 
-	widht = matrice->map.x * 64;
-	height = matrice->map.y * 64;
-	mlx_resize_image(matrice->img.floor.img, widht, height);
 	mlx_image_to_window(matrice->mlx_ptr, matrice->img.floor.img, 0, 0);
 	i = -1;
 	while (matrice->map.map[++i])

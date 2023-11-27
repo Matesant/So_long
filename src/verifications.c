@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:02:23 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/20 12:05:28 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:57:06 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,19 +103,19 @@ void	ft_validate_file(char *file)
 
 	line2 = '\0';
 	if (ft_strncmp(file + ft_strlen(file) - 4, ".ber", 4) != 0)
-		ft_map_errors("Invalid file\n", NULL);
+		ft_exit_file("Invalid file\n");
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		ft_map_errors("Invalid file\n", NULL);
+		ft_exit_file("Invalid file\n");
 	read(fd, &line2, 1);
 	if (line2 == '\n')
-		ft_map_errors("empty File\n", NULL);
+		ft_exit_file("Invalid file\n");
 	line = get_next_line(fd);
 	if (line == NULL || line[0] == '\0' || line[0] == '\n' || line[0] == '\r')
 	{
 		close(fd);
 		free(line);
-		ft_map_errors("Invalid file\n", NULL);
+		ft_exit_file("Invalid file\n");
 	}
 	close(fd);
 	free(line);

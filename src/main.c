@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/22 16:02:41 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:49:45 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	ft_init_counters(t_game *matrice)
 	matrice->map.ppos.y = 0;
 	matrice->counter.collect_fill = 0;
 	matrice->count = 0;
+	matrice->steps = 1;
+	matrice->mlx_ptr = NULL;
 }
 
 void	ft_cmap(char *path, t_game *matrice)
@@ -69,8 +71,8 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		ft_map_errors("Invalid number of arguments", NULL);
-	ft_validate_file(argv[1]);
 	ft_init_counters(&maurice);
+	ft_validate_file(argv[1]);
 	ft_cmap(argv[1], &maurice);
 	ft_map_format(&maurice);
 	ft_flood_fill(&maurice, maurice.map.ppos.x, maurice.map.ppos.y);
@@ -81,5 +83,5 @@ int	main(int argc, char **argv)
 	ft_start_mlx(&maurice);
 	key_assign(&maurice);
 	mlx_loop(maurice.mlx_ptr);
-	ft_delete_all(&maurice);
+	ft_map_errors("Thank you bye bye matane\n", &maurice);
 }

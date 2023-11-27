@@ -3,70 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:57:40 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/22 14:56:30 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:11:15 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int		ft_verify_path(t_game *check, int x, int y, int i);
-void	ft_collect(t_game *check, int x, int y);
+int	ft_verify_path(t_game *check, int x, int y);
 
-void	move_sid(int i, t_game *map, int x, int y)
+void	move_sid(t_game *map, int x, int y)
 {
-	if (i == 1 && ((!(ft_verify_path(map, x, y, 1) == 0))))
-		map->img.player.img->instances[0].y -= 64;
-	else if (i == 2 && ((!(ft_verify_path(map, x, y, 2) == 0))))
-		map->img.player.img->instances[0].y += 64;
-	else if (i == 3 && ((!(ft_verify_path(map, x, y, 3) == 0))))
-		map->img.player.img->instances[0].x -= 64;
-	else if (i == 4 && ((!(ft_verify_path(map, x, y, 4) == 0))))
-		map->img.player.img->instances[0].x += 64;
+	if (ft_verify_path(map, x, y))
+	{
+		map->img.player.img->instances[0].x = x;
+		map->img.player.img->instances[0].y = y;
+		ft_printf("movement: %d\n", map->steps++);
+	}
+	ft_collect(map, x, y);
+	ft_init_exit(map, x, y);
+	return ;
 }
 
 void	key_hooks(mlx_key_data_t key_args, void *param)
 {
 	t_game	*map;
-	int		*x;
-	int		*y;
+	int		x;
+	int		y;
 
 	map = (t_game *)param;
-	y = &map->img.player.img->instances[0].y;
-	x = &map->img.player.img->instances[0].x;
+	y = map->img.player.img->instances[0].y;
+	x = map->img.player.img->instances[0].x;
 	if (key_args.key == MLX_KEY_ESCAPE)
 		mlx_close_window(map->mlx_ptr);
 	else if ((key_args.key == W || key_args.key == UP) && (key_args.action == P
 			|| key_args.action == R))
-		move_sid(1, map, *x, *y);
+		move_sid(map, x, y - 64);
 	else if ((key_args.key == S || key_args.key == DOWN)
 		&& (key_args.action == P || key_args.action == R))
-		move_sid(2, map, *x, *y);
+		move_sid(map, x, y + 64);
 	else if ((key_args.key == A || key_args.key == LEFT)
 		&& (key_args.action == P || key_args.action == R))
-		move_sid(3, map, *x, *y);
+		move_sid(map, x - 64, y);
 	else if ((key_args.key == D || key_args.key == RIGHT)
 		&& (key_args.action == P || key_args.action == R))
-		move_sid(4, map, *x, *y);
-	ft_collect(map, *x, *y);
+		move_sid(map, x + 64, y);
 }
 
-int	ft_verify_path(t_game *check, int x, int y, int i)
+int	ft_verify_path(t_game *check, int x, int y)
 {
-	if (i == 1 && check->map.map[(y - HEIGHT) / HEIGHT][x / WIDTH] == WALL)
-		return (0);
-	else if (i == 2 && check->map.map[(y + HEIGHT) / HEIGHT][x / WIDTH] == WALL)
-		return (0);
-	else if (i == 3 && check->map.map[y / HEIGHT][(x - WIDTH) / WIDTH] == WALL)
-		return (0);
-	else if (i == 4 && check->map.map[y / HEIGHT][(x + WIDTH) / WIDTH] == WALL)
-		return (0);
-	else if (check->map.map[y / HEIGHT][x / WIDTH] == 69 && check->count == 0)
-		mlx_close_window(check->mlx_ptr);
-	else
-		return (1);
+	int	i;
+
+	i = -1;
+	while (++i < check->counter.walls)
+	{
+		if (check->img.wall.img->instances[i].x == x
+			&& check->img.wall.img->instances[i].y == y)
+			return (0);
+	}
 	return (1);
 }
 
@@ -97,3 +93,9 @@ void	ft_collect(t_game *check, int x, int y)
 	}
 }
 
+void	ft_init_exit(t_game *map, int x, int y)
+{
+	if (map->img.exit.img->instances[0].x == x
+		&& map->img.exit.img->instances[0].y == y && map->count == 0)
+		ft_map_errors("Exit found!\n", map);
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image_creation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vboxuser <vboxuser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:06:07 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/22 16:01:04 by vboxuser         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:58:08 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	load_path(char **path)
 	path[1] = "assets/wall.png";
 	path[2] = "assets/floor.png";
 	path[3] = "assets/exit.png";
-	path[4] = "assets/enimy.png";
+	// path[4] = "assets/enimy.png";
 }
 
 void	all_image(t_game *matrice)
 {
-	char	*path[6];
+	char	*path[4];
 
 	load_path(path);
 	matrice->img.floor = image_load(matrice->mlx_ptr, path[2]);
@@ -41,6 +41,7 @@ void	all_image(t_game *matrice)
 	matrice->img.player = image_load(matrice->mlx_ptr, path[0]);
 	matrice->img.exit = image_load(matrice->mlx_ptr, path[3]);
 }
+
 void	place_coin(t_game *game, mlx_image_t **img, char *path)
 {
 	mlx_texture_t	*texture;
