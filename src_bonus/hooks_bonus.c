@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:57:40 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:23:59 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:45:50 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	move_sid(t_game *map, int x, int y)
 		map->img.player.img->instances[0].x = x;
 		map->img.player.img->instances[0].y = y;
 		ft_printf("movement: %d\n", map->steps++);
+		moves(map);
 	}
 	ft_collect(map, x, y);
 	ft_init_exit_enemy(map, x, y);

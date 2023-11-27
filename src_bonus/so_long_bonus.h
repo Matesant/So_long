@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:20:21 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:45:15 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ typedef struct s_game
 	int				count;
 	int				steps;
 	t_img			img;
+	int				move;
 }					t_game;
 
 // map checkers
@@ -148,5 +149,6 @@ void				init_collect(t_game *game, int x, int y, int *count);
 void				key_hooks(mlx_key_data_t key_args, void *param);
 void				ft_collect(t_game *check, int x, int y);
 void				ft_init_exit_enemy(t_game *map, int x, int y);
+void				moves(t_game *maurice);
 
 #endif

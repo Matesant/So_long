@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:22:02 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:52:00 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,23 @@ void	ft_start_mlx(t_game *matrice)
 {
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	matrice->mlx_ptr = mlx_init(WIDHT_SCREEN * matrice->map.x, HEIGHT_SCREEN
-			* matrice->map.y, "so_long", true);
+		* matrice->map.y, "so_long", true);
 	if (!matrice->mlx_ptr)
 		ft_map_errors("Error mlx_init\n", matrice);
 	all_image(matrice);
 	ft_put(matrice);
+}
+
+void	moves(t_game *matrice)
+{
+	static mlx_image_t	*move_img;
+	char				*counter;
+
+	if (move_img)
+		mlx_delete_image(matrice->mlx_ptr, move_img);
+	counter = ft_itoa(matrice->move);
+	mlx_put_string(matrice->mlx_ptr, "steps:", 0, 0);
+	move_img = mlx_put_string(matrice->mlx_ptr, counter, 70, 0);
+	free(counter);
+	matrice->move++;
 }
