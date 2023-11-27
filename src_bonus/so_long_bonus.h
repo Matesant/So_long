@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:02:57 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:20:21 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_img
 	t_draw			player;
 	t_draw			exit;
 	t_draw			collect[10000];
+	t_draw			enemy;
 }					t_img;
 
 // counter for characters
@@ -146,6 +147,6 @@ void				init_collect(t_game *game, int x, int y, int *count);
 // key hooks
 void				key_hooks(mlx_key_data_t key_args, void *param);
 void				ft_collect(t_game *check, int x, int y);
-void				ft_init_exit(t_game *map, int x, int y);
+void				ft_init_exit_enemy(t_game *map, int x, int y);
 
 #endif

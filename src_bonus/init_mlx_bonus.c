@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:09:10 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:22:02 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_put_window(t_game *matrice, int c, int x, int y)
 		init_collect(matrice, x, y, &matrice->count);
 	else if (c == 'E')
 		mlx_image_to_window(matrice->mlx_ptr, matrice->img.exit.img, x, y);
+	else if (c == 'K')
+		mlx_image_to_window(matrice->mlx_ptr, matrice->img.enemy.img, x, y);
 }
 
 void	ft_put(t_game *matrice)

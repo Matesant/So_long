@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:57:40 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 16:08:51 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:23:59 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	move_sid(t_game *map, int x, int y)
 		ft_printf("movement: %d\n", map->steps++);
 	}
 	ft_collect(map, x, y);
-	ft_init_exit(map, x, y);
+	ft_init_exit_enemy(map, x, y);
 	return ;
 }
 
@@ -93,9 +93,12 @@ void	ft_collect(t_game *check, int x, int y)
 	}
 }
 
-void	ft_init_exit(t_game *map, int x, int y)
+void	ft_init_exit_enemy(t_game *map, int x, int y)
 {
 	if (map->img.exit.img->instances[0].x == x
 		&& map->img.exit.img->instances[0].y == y && map->count == 0)
-		ft_map_errors("Exit found!\n", map);
+		ft_map_errors("Zaz, presunt sandwich!\n", map);
+	if (map->img.enemy.img->instances[0].x == x
+		&& map->img.enemy.img->instances[0].y == y)
+		ft_map_errors("Pipipipipi\n", map);
 }
