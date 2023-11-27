@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_mlx.c                                         :+:      :+:    :+:   */
+/*   init_mlx_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/24 16:42:29 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:07:44 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long._bonus.h"
 
 void	ft_put_window(t_game *matrice, int c, int x, int y)
 {

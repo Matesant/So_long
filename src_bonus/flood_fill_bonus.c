@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flood_fill.c                                       :+:      :+:    :+:   */
+/*   flood_fill_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 23:33:13 by vboxuser          #+#    #+#             */
-/*   Updated: 2023/11/27 12:16:41 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:08:00 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long._bonus.h"
 
 void	ft_flood_fill(t_game *matrice, int x, int y)
 {
