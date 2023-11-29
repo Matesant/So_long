@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:57:40 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 17:35:40 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:16:38 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,19 @@ void	ft_collect(t_game *check, int x, int y)
 
 void	ft_init_exit_enemy(t_game *map, int x, int y)
 {
+	int	i;
+
+	i = -1;
 	if (map->img.exit.img->instances[0].x == x
 		&& map->img.exit.img->instances[0].y == y && map->count == 0)
 		ft_map_errors("Zaz, presunt sandwich!\n", map);
-	if (map->counter.enemy > 0)
+	while (++i < map->counter.enemy)
 	{
-		if (map->img.enemy.img->instances[0].x == x
-			&& map->img.enemy.img->instances[0].y == y)
-			ft_map_errors("Pipipipipi\n", map);
+		if (map->counter.enemy > 0)
+		{
+			if (map->img.enemy[i].img->instances[0].x == x
+				&& map->img.enemy[i].img->instances[0].y == y)
+				ft_map_errors("Pipipipipi\n", map);
+		}
 	}
 }

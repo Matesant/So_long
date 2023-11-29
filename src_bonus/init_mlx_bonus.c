@@ -6,11 +6,13 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 17:02:00 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:16:15 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+void	init_enemies(t_game *game, int x, int y, int *count);
 
 void	ft_put_window(t_game *matrice, int c, int x, int y)
 {
@@ -23,7 +25,7 @@ void	ft_put_window(t_game *matrice, int c, int x, int y)
 	else if (c == 'E')
 		mlx_image_to_window(matrice->mlx_ptr, matrice->img.exit.img, x, y);
 	else if (c == 'K')
-		mlx_image_to_window(matrice->mlx_ptr, matrice->img.enemy.img, x, y);
+		init_enemies(matrice, x, y, &matrice->count2);
 }
 
 void	ft_put(t_game *matrice)
@@ -47,7 +49,7 @@ void	ft_start_mlx(t_game *matrice)
 {
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	matrice->mlx_ptr = mlx_init(WIDHT_SCREEN * matrice->map.x, HEIGHT_SCREEN
-			* matrice->map.y, "so_long", true);
+		* matrice->map.y, "so_long", true);
 	if (!matrice->mlx_ptr)
 		ft_map_errors("Error mlx_init\n", matrice);
 	all_image(matrice);
@@ -66,4 +68,11 @@ void	moves(t_game *matrice)
 	move_img = mlx_put_string(matrice->mlx_ptr, counter, 70, 0);
 	free(counter);
 	matrice->move++;
+}
+
+void	init_enemies(t_game *game, int x, int y, int *count)
+{
+	place_coin(game, &game->img.enemy[*count].img, ENEMY_PNG);
+	mlx_image_to_window(game->mlx_ptr, game->img.enemy[*count].img, x, y);
+	(*count)++;
 }

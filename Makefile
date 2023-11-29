@@ -6,16 +6,22 @@ BIN		:= ./bin/
 MLX 	:= ./MLX42/build/libmlx42.a
 HEADERS	:= -I ./includes -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
-SRCS	:=  src/hooks.c src/image_creation.c src/init_mlx.c src/errors.c src/verifications.c src/flood_fill.c src/main.c
-SRCS_BONUS	:=  src_bonus/hooks_bonus.c src_bonus/image_creation_bonus.c src_bonus/init_mlx_bonus.c src_bonus/errors_bonus.c src_bonus/verifications_bonus.c src_bonus/flood_fill_bonus.c src_bonus/main_bonus.c
+
+SRCS	:=  src/hooks.c src/image_creation.c src/init_mlx.c \
+			src/errors.c src/verifications.c src/flood_fill.c src/main.c
+
+SRCS_BONUS	:=  src_bonus/hooks_bonus.c src_bonus/image_creation_bonus.c src_bonus/init_mlx_bonus.c \
+				src_bonus/errors_bonus.c src_bonus/verifications_bonus.c \
+				src_bonus/flood_fill_bonus.c src_bonus/main_bonus.c
+
 OBJS	:= ${SRCS:src/%.c=$(BIN)%.o}
 OBJS_BONUS	:= ${SRCS_BONUS:src_bonus/%.c=%.o}
-LIBFT_DIR:= ../So_long/lib/42_libft/
-PRINTF_DIR	:= ../So_long/lib/Printf/
-GNL_DIR		:= ../So_long/lib/Get_next_line/
-GNL_PATH	:= ../So_long/lib/Get_next_line/get_next_line.a
-PRINTF_PATH:= ../So_long/lib/Printf/libftprintf.a
-LIBFT_PATH:= ../So_long/lib/42_libft/libft.a
+LIBFT_DIR:= ./lib/42_libft/
+PRINTF_DIR	:= ./lib/Printf/
+GNL_DIR		:= ./lib/Get_next_line/
+GNL_PATH	:= ./lib/Get_next_line/get_next_line.a
+PRINTF_PATH:= ./lib/Printf/libftprintf.a
+LIBFT_PATH:= ./lib/42_libft/libft.a
 LIBS42:= $(LIBFT_PATH) $(PRINTF_PATH) $(GNL_PATH)
 
 all: libmlx $(BIN) $(NAME)

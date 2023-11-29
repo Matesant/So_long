@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:29:49 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 17:29:14 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:14:23 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	ft_init_counters(t_game *matrice)
 	matrice->map.ppos.y = 0;
 	matrice->counter.collect_fill = 0;
 	matrice->count = 0;
+	matrice->count2 = 0;
 	matrice->steps = 1;
 	matrice->move = 1;
 	matrice->mlx_ptr = NULL;

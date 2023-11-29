@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:50:06 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/27 17:29:37 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:06:08 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define COLLECT 67
 # define FLOOR 48
 # define COLLECT_PNG "assets/collectable.png"
+# define ENEMY_PNG "assets/enemy.png"
 
 // size image
 # define WIDHT_SCREEN 64
@@ -69,7 +70,7 @@ typedef struct s_img
 	t_draw			player;
 	t_draw			exit;
 	t_draw			collect[10000];
-	t_draw			enemy;
+	t_draw			enemy[1000];
 }					t_img;
 
 // counter for characters
@@ -113,6 +114,7 @@ typedef struct s_game
 	t_counter		counter;
 	t_file			file;
 	int				count;
+	int				count2;
 	int				steps;
 	t_img			img;
 	int				move;
@@ -145,6 +147,7 @@ t_draw				image_load(void *mlx, char *path);
 void				load_path(char **path);
 void				all_image(t_game *matrice);
 void				init_collect(t_game *game, int x, int y, int *count);
+void				place_coin(t_game *game, mlx_image_t **img, char *path);
 
 // key hooks
 void				key_hooks(mlx_key_data_t key_args, void *param);
