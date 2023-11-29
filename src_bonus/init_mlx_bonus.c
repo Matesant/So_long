@@ -6,7 +6,7 @@
 /*   By: matesant <matesant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:44:45 by matesant          #+#    #+#             */
-/*   Updated: 2023/11/29 16:16:15 by matesant         ###   ########.fr       */
+/*   Updated: 2023/11/29 18:12:54 by matesant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_start_mlx(t_game *matrice)
 {
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	matrice->mlx_ptr = mlx_init(WIDHT_SCREEN * matrice->map.x, HEIGHT_SCREEN
-		* matrice->map.y, "so_long", true);
+			* matrice->map.y, "so_long", true);
 	if (!matrice->mlx_ptr)
 		ft_map_errors("Error mlx_init\n", matrice);
 	all_image(matrice);
