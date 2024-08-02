@@ -11,3 +11,16 @@
     </div>
 </body>
 </html>
+
+<div style="text-align: center;">
+    <h1>✅ So_long</h1>
+    <blockquote style="display: inline-block; text-align: center;">
+                                       The First Graphical Project of the 42 Curriculum
+    </blockquote>
+    <pre style="display: inline-block; text-align: center;">
+
+In this project, we are challenged to create a 2D game using the MinilibX library provided by 42.
+MinilibX is a lightweight library designed to simplify the creation of basic graphical interfaces and event handling. 
+This project is a great opportunity to learn about graphical programming and game logic.
+    </pre>
+</div>
