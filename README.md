@@ -12,12 +12,10 @@
 </body>
 </html>
 
-<div style="text-align: center;">
-    <h1>✅ So_long</h1>
-    <blockquote style="display: inline-block; text-align: center;">
-                                       The First Graphical Project of the 42 Curriculum
-    </blockquote>
-    <pre style="display: inline-block; text-align: center;">
+<h1 align="center"> so long and thanks for all the fish </h1>
+
+## About
+The First Graphical Project of the 42 Curriculum
 
 In this project, we are challenged to create a 2D game using the MinilibX library provided by 42.
 MinilibX is a lightweight library designed to simplify the creation of basic graphical interfaces and event handling. 
